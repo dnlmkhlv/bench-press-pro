@@ -5,41 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Calculate your bench press one-rep max (1RM) with our free, easy-to-use calculator. Estimate your maximum strength for weightlifting and powerlifting.">
     <meta name="keywords" content="bench press, 1RM calculator, one rep max, weightlifting, powerlifting, strength training">
+    <meta name="robots" content="index, follow">
     <title>Bench Press 1RM Calculator | Estimate Your Max Strength</title>
     <link rel="canonical" href="https://yourdomain.com/bench-press-1rm-calculator">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+    <!-- Add Open Graph meta tags -->
+    <meta property="og:title" content="Bench Press 1RM Calculator | Estimate Your Max Strength">
+    <meta property="og:description" content="Calculate your bench press one-rep max (1RM) with our free, easy-to-use calculator. Estimate your maximum strength for weightlifting and powerlifting.">
+    <meta property="og:image" content="https://yourdomain.com/img/bench-press-og.jpg">
+    <meta property="og:url" content="https://yourdomain.com/bench-press-1rm-calculator">
+    <meta property="og:type" content="website">
+    <!-- Add Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bench Press 1RM Calculator | Estimate Your Max Strength">
+    <meta name="twitter:description" content="Calculate your bench press one-rep max (1RM) with our free, easy-to-use calculator. Estimate your maximum strength for weightlifting and powerlifting.">
+    <meta name="twitter:image" content="https://yourdomain.com/img/bench-press-twitter.jpg">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="nav-logo"><span class="nav-logo-bench-press">BenchPress</span><span class="nav-logo-pro">PRO</span></div>
-            <div class="nav-right">
-                <button id="mode-switch" aria-label="Toggle dark mode">🌙</button>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="nav-logo"><a href="index.html"><span class="nav-logo-bench-press">BenchPress</span><span class="nav-logo-pro">PRO</span></a></div>
+                <div class="nav-right">
+                    <button id="mode-switch" aria-label="Toggle dark mode">🌙</button>
+                    <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+                </div>
             </div>
+        </nav>
+    </header>
+    <div id="full-screen-menu" class="full-screen-menu">
+        <button id="close-menu" aria-label="Close menu">✕</button>
+        <div class="menu-content">
+            <a href="pages/about.html">About</a>
+            <a href="pages/contact.html">Contact</a>
+            <a href="pages/privacy-policy.html">Privacy Policy</a>
+            <a href="pages/terms-and-conditions.html">Terms and Conditions</a>
         </div>
-    </nav>
-    <div class="container">
-        <h1>Bench Press 1RM Calculator</h1>
-        <p class="subtitle">The Most Accurate Bench Press Calculator.</p>
-        <div class="calculator-container">
-            <div class="input-group">
-                <label for="weight">Weight lifted</label>
-                <input type="number" id="weight" min="0" step="0.5" placeholder="Enter weight you lifted" required aria-label="Weight lifted">
-                <select id="weight-unit" aria-label="Weight unit">
-                    <option value="kg">kg</option>
-                    <option value="lb">lb</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="reps">Number of reps</label>
-                <input type="number" id="reps" min="1" max="30" step="1" placeholder="Enter number of reps (1 to 30)" required aria-label="Number of repetitions">
-            </div>
+    </div>
+    <main>
+        <div class="container">
+            <h1>Bench Press 1RM Calculator</h1>
+            <p class="subtitle">The Most Accurate Bench Press Calculator.</p>
+            <section class="calculator-container">
+                <div class="input-group">
+                    <label for="weight">Weight lifted</label>
+                    <input type="number" id="weight" min="0" step="0.5" placeholder="Enter weight you lifted" required aria-label="Weight lifted">
+                    <select id="weight-unit" aria-label="Weight unit">
+                        <option value="kg">kg</option>
+                        <option value="lb">lb</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="reps">Number of reps</label>
+                    <input type="number" id="reps" min="1" max="30" step="1" placeholder="Enter number of reps (1 to 30)" required aria-label="Number of repetitions">
+                </div>
 
-            <div id="result" aria-live="polite"></div>
-            <button onclick="calculate1RM()">Calculate 1RM</button>
-        </div>
-            <div class="formulas">
+                <div id="result" aria-live="polite"></div>
+                <button onclick="calculate1RM()">Calculate 1RM</button>
+            </section>
+            <section class="formulas">
                 <h2>Formulas Used:</h2>
                 <ol>
                     <li>Brzycki: <em>1RM = <div class="fraction"><span class="numerator">w</span><span class="denominator">1.0278 - 0.0278 × r</span></div></em> <span id="brzycki-result"></span></li>
@@ -57,7 +82,174 @@
                     <li><strong>r</strong> = Number of repetitions</li>
                     <li><strong>e</strong> = Euler's number (approximately 2.71828)</li>
                 </ul>
+            </section>
+            <section class="bench-press-info">
+                <h2>What is Bench Press?</h2>
+                <blockquote class="bench-press-definition">
+                    <p>The bench press is a compound weight training exercise where the lifter lies on a bench and pushes a weight upwards with their arms.</p>
+                </blockquote>
+                <img src="images/bench-press.jpeg" alt="Bench Press" class="bench-press-image">
+                <p>The bench press is one of the most popular and effective exercises for developing upper body strength. It primarily targets the following muscle groups:</p>
+                <ul class="muscle-groups">
+                    <li><strong>Pectoralis Major (Chest):</strong> The main muscle worked during the bench press.</li>
+                    <li><strong>Anterior Deltoids (Front Shoulders):</strong> Assist in pushing the weight upward.</li>
+                    <li><strong>Triceps Brachii (Back of the Arms):</strong> Help extend the elbows during the pressing motion.</li>
+                </ul>
+                <p>Additionally, the bench press engages stabilizing muscles such as the biceps, lats, and core to maintain proper form throughout the movement.</p>
+            </section>
+            <section class="bench-press-standards">
+                <h2>Bench Press Standards</h2>
+                <h3>Male Bench Press Standards (in kg)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Body Weight</th>
+                            <th>Beginner</th>
+                            <th>Novice</th>
+                            <th>Intermediate</th>
+                            <th>Advanced</th>
+                            <th>Elite</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>60kg</td>
+                            <td>45</td>
+                            <td>65</td>
+                            <td>85</td>
+                            <td>110</td>
+                            <td>140</td>
+                        </tr>
+                        <tr>
+                            <td>75kg</td>
+                            <td>55</td>
+                            <td>75</td>
+                            <td>100</td>
+                            <td>130</td>
+                            <td>165</td>
+                        </tr>
+                        <tr>
+                            <td>90kg</td>
+                            <td>65</td>
+                            <td>85</td>
+                            <td>115</td>
+                            <td>145</td>
+                            <td>185</td>
+                        </tr>
+                        <tr>
+                            <td>100kg+</td>
+                            <td>70</td>
+                            <td>95</td>
+                            <td>125</td>
+                            <td>160</td>
+                            <td>200</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Female Bench Press Standards (in kg)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Body Weight</th>
+                            <th>Beginner</th>
+                            <th>Novice</th>
+                            <th>Intermediate</th>
+                            <th>Advanced</th>
+                            <th>Elite</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>50kg</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>55</td>
+                            <td>70</td>
+                        </tr>
+                        <tr>
+                            <td>60kg</td>
+                            <td>25</td>
+                            <td>35</td>
+                            <td>45</td>
+                            <td>60</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>70kg</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>55</td>
+                            <td>70</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>80kg+</td>
+                            <td>35</td>
+                            <td>45</td>
+                            <td>60</td>
+                            <td>80</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="standards">
+                    <h2>What do these standards mean?</h3>
+                    <p>These standards represent the maximum weight you can lift for one repetition (1RM) in each body weight category. They help determine your bench press strength level:</p>
+                    <ul>
+                        <li><strong>Beginner:</strong> Stronger than 10% of lifters in your weight class. A beginner is someone who has recently started lifting weights and is still learning the basics.</li>
+                        <li><strong>Novice:</strong> Stronger than 25% of lifters in your weight class. A novice has been lifting weights for a few months and is familiar with the fundamentals.</li>
+                        <li><strong>Intermediate:</strong> Stronger than 50% of lifters in your weight class. An intermediate lifter has been training consistently for a few years.</li>
+                        <li><strong>Advanced:</strong> Stronger than 75% of lifters in your weight class. An advanced lifter has been dedicated to strength training for over five years.</li>
+                        <li><strong>Elite:</strong> Stronger than 90% of lifters in your weight class. An elite lifter has been training at a high level for at least eight years.</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="calculator-explanation">
+                <h2>How Does the 1RM Calculator Work?</h2>
+                <p>The One-Rep Max (1RM) calculator estimates the maximum weight you can lift for a single repetition based on the weight you can lift for multiple repetitions. Here's how it works:</p>
+                <ol>
+                    <li><strong>Input:</strong> You provide the weight lifted and the number of repetitions performed.</li>
+                    <li><strong>Formulas:</strong> The calculator uses several established formulas (e.g., Brzycki, Epley, Lander) to estimate your 1RM.</li>
+                    <li><strong>Calculation:</strong> Each formula calculates an estimated 1RM based on your input.</li>
+                    <li><strong>Average:</strong> The calculator then takes an average of these estimates for a more accurate prediction.</li>
+                    <li><strong>Output:</strong> The final result is displayed as your estimated 1RM.</li>
+                </ol>
+                <p>This method provides a safe way to estimate your maximum strength without the risks associated with attempting a true one-rep max lift.</p>
+                <div class="note">
+                    <p><strong>Note:</strong> The accuracy of the prediction decreases as the number of repetitions increases. For best results, use a weight you can lift for 2-6 repetitions.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="pages/about.html">About</a>
+                <a href="pages/contact.html">Contact</a>
+                <a href="pages/privacy-policy.html">Privacy Policy</a>
+                <a href="pages/terms-and-conditions.html">Terms and Conditions</a>
             </div>
-    </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 BenchPressPRO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Bench Press 1RM Calculator",
+      "description": "Calculate your bench press one-rep max (1RM) with our free, easy-to-use calculator. Estimate your maximum strength for weightlifting and powerlifting.",
+      "url": "https://yourdomain.com/bench-press-1rm-calculator",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Bench Press 1RM Calculator",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All"
+      }
+    }
+    </script>
 </body>
 </html>

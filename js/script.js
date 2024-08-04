@@ -68,3 +68,17 @@ document.getElementById('mode-switch').addEventListener('click', toggleDarkMode)
 if (localStorage.getItem('darkMode') === 'enabled') {
     toggleDarkMode();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const fullScreenMenu = document.getElementById('full-screen-menu');
+
+    menuToggle.addEventListener('click', function() {
+        fullScreenMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', function() {
+        fullScreenMenu.classList.remove('active');
+    });
+});

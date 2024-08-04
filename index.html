@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your bench press one-rep max (1RM) with our free, easy-to-use calculator. Estimate your maximum strength for weightlifting and powerlifting.">
+    <meta name="keywords" content="bench press, 1RM calculator, one rep max, weightlifting, powerlifting, strength training">
+    <title>Bench Press 1RM Calculator | Estimate Your Max Strength</title>
+    <link rel="canonical" href="https://yourdomain.com/bench-press-1rm-calculator">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo"><span class="nav-logo-bench-press">BenchPress</span><span class="nav-logo-pro">PRO</span></div>
+            <div class="nav-right">
+                <button id="mode-switch" aria-label="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Bench Press 1RM Calculator</h1>
+        <p class="subtitle">The Most Accurate Bench Press Calculator.</p>
+        <div class="calculator-container">
+            <div class="input-group">
+                <label for="weight">Weight lifted</label>
+                <input type="number" id="weight" min="0" step="0.5" placeholder="Enter weight you lifted" required aria-label="Weight lifted">
+                <select id="weight-unit" aria-label="Weight unit">
+                    <option value="kg">kg</option>
+                    <option value="lb">lb</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="reps">Number of reps</label>
+                <input type="number" id="reps" min="1" max="30" step="1" placeholder="Enter number of reps (1 to 30)" required aria-label="Number of repetitions">
+            </div>
+
+            <div id="result" aria-live="polite"></div>
+            <button onclick="calculate1RM()">Calculate 1RM</button>
+        </div>
+            <div class="formulas">
+                <h2>Formulas Used:</h2>
+                <ol>
+                    <li>Brzycki: <em>1RM = <div class="fraction"><span class="numerator">w</span><span class="denominator">1.0278 - 0.0278 × r</span></div></em> <span id="brzycki-result"></span></li>
+                    <li>Epley: <em>1RM = w × (1 + 0.0333 × r)</em> <span id="epley-result"></span></li>
+                    <li>Lander: <em>1RM = <div class="fraction"><span class="numerator">100 × w</span><span class="denominator">101.3 - 2.67123 × r</span></div></em> <span id="lander-result"></span></li>
+                    <li>Lombardi: <em>1RM = w × r<sup>0.1</sup></em> <span id="lombardi-result"></span></li>
+                    <li>O'Conner: <em>1RM = w × (1 + 0.025 × r)</em> <span id="oconner-result"></span></li>
+                    <li>Mayhew et al.: <em>1RM = <div class="fraction"><span class="numerator">100 × w</span><span class="denominator">52.2 + 41.9 × e<sup>-0.055 × r</sup></span></div></em> <span id="mayhew-result"></span></li>
+                    <li>Wathen: <em>1RM = <div class="fraction"><span class="numerator">100 × w</span><span class="denominator">48.8 + 53.8 × e<sup>-0.075 × r</sup></span></div></em> <span id="wathen-result"></span></li>
+                </ol>
+                <p><b>Where:</b></p>
+                <ul>
+                    <li><strong>1RM</strong> = One Repetition Maximum</li>
+                    <li><strong>w</strong> = Weight lifted (kg)</li>
+                    <li><strong>r</strong> = Number of repetitions</li>
+                    <li><strong>e</strong> = Euler's number (approximately 2.71828)</li>
+                </ul>
+            </div>
+    </div>
+</body>
+</html>
